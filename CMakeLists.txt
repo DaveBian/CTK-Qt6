@@ -617,11 +617,11 @@ if(CTK_APP_ctkCommandLineModuleExplorer)
 endif()
 
 ctk_app_option(ctkPluginBrowser
-               "Build the DICOM example application" OFF
+               "Build the DICOM example application" ON
                CTK_ENABLE_PluginFramework AND CTK_BUILD_EXAMPLES)
 
 ctk_app_option(ctkPluginGenerator
-               "Build the DICOM example application" OFF
+  "Build the DICOM example application" ON
                CTK_ENABLE_PluginFramework AND CTK_BUILD_EXAMPLES)
 
 ctk_app_option(ctkDICOMObjectViewer
