@@ -17,6 +17,10 @@ if(${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
   message(FATAL_ERROR "Enabling ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj} is not supported !")
 endif()
 
+#set CTKData_path
+set(CTKData_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../CTKData)
+#上面的是新增加，下面的不管它，只起定位参考用
+
 # Sanity checks
 if(DEFINED CTKData_DIR AND NOT EXISTS ${CTKData_DIR})
   message(FATAL_ERROR "CTKData_DIR variable is defined but corresponds to non-existing directory")

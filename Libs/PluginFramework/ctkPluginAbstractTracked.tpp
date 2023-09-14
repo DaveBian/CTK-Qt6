@@ -280,7 +280,7 @@ int ctkPluginAbstractTracked<S,T,R>::getTrackingCount() const
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
   return trackingCount;
 #else
-  return trackingCount.load();
+  return trackingCount.loadRelaxed();
 #endif
 }
 

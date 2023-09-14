@@ -26,6 +26,7 @@
 #include <ctkPluginFrameworkExport.h>
 
 #include <QTextStream>
+#include <QString>
 
 struct ctkLogService;
 

@@ -86,13 +86,16 @@ private:
 
   friend struct ctkCmdLineModuleFutureWatcherPrivate;
 
-  QScopedPointer<ctkCmdLineModuleFutureWatcherPrivate> d;
 
   const ctkCmdLineModuleFutureInterface& futureInterface() const;
   ctkCmdLineModuleFutureInterface& futureInterface();
 
   // not implemented
   void setFuture(const QFuture<ctkCmdLineModuleResult>&);
+
+public:
+  QScopedPointer<ctkCmdLineModuleFutureWatcherPrivate> d;
+
 };
 
 #endif // CTKCMDLINEMODULEFUTUREWATCHER_H

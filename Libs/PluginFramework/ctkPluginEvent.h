@@ -47,6 +47,7 @@ class ctkPluginEventData;
 class CTK_PLUGINFW_EXPORT ctkPluginEvent
 {
 
+protected:
   QSharedDataPointer<ctkPluginEventData> d;
 
 public:

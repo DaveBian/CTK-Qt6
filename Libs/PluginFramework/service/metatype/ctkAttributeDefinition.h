@@ -41,7 +41,7 @@
  */
 struct CTK_PLUGINFW_EXPORT ctkAttributeDefinition
 {
-  typedef QVariant::Type Type;
+  typedef QMetaType::Type Type;
 
   static const int PASSWORD;
 

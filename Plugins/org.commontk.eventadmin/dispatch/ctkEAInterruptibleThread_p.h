@@ -29,6 +29,8 @@
 #include <QAtomicInt>
 #include <QRunnable>
 
+#include <climits>
+
 /**
  * A QRunnable subclass with simple reference counting.
  */

@@ -128,6 +128,7 @@ bool ctkCmdLineModuleFrontend::isRunning() const
 bool ctkCmdLineModuleFrontend::isPaused() const
 {
   return d->Future.isPaused();
+  // return d->Future.isSuspened();
 }
 
 //----------------------------------------------------------------------------

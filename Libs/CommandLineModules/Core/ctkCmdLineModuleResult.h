@@ -41,6 +41,7 @@ struct ctkCmdLineModuleResultPrivate;
  */
 class CTK_CMDLINEMODULECORE_EXPORT ctkCmdLineModuleResult
 {
+  friend class ctkCmdLineModuleFuture;
 public:
 
   ctkCmdLineModuleResult();
@@ -65,7 +66,9 @@ public:
    */
   QVariant value() const;
 
-private:
+// private:
+protected:
+public:
 
   QSharedPointer<ctkCmdLineModuleResultPrivate> d;
 };

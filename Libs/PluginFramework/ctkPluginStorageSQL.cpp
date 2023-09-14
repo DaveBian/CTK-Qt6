@@ -517,7 +517,7 @@ void ctkPluginStorageSQL::replacePluginArchive(QSharedPointer<ctkPluginArchive> 
   pos = find(id);
   if (pos >= m_archives.size() || m_archives[pos] != oldPA)
   {
-    throw ctkRuntimeException(QString("replacePluginArchive: Old plugin archive not found, pos=").append(pos));
+    throw ctkRuntimeException(QString("replacePluginArchive: Old plugin archive not found, pos=").append(QString::number(pos)));
   }
 
   QSqlDatabase database = getConnection();
@@ -696,7 +696,7 @@ QStringList ctkPluginStorageSQL::findResourcesPath(int archiveKey, const QString
     }
   }
 
-  return paths.toList();
+  return paths.values();
 }
 
 //----------------------------------------------------------------------------
@@ -733,7 +733,7 @@ void ctkPluginStorageSQL::executeQuery(QSqlQuery *query, const QString &statemen
       }
 
       ctkPluginDatabaseException::Type errorType;
-      int result = query->lastError().number();
+      int result = query->lastError().nativeErrorCode().toInt();
       if (result == 26 || result == 11) //SQLILTE_NOTADB || SQLITE_CORRUPT
       {
         qWarning() << "ctkPluginFramework:- Database file is corrupt or invalid:" << getDatabasePath();
@@ -1009,7 +1009,7 @@ void ctkPluginStorageSQL::beginTransaction(QSqlQuery *query, TransactionType typ
       success = query->exec(QLatin1String("BEGIN IMMEDIATE"));
 
   if (!success) {
-      int result = query->lastError().number();
+      int result = query->lastError().nativeErrorCode().toInt();
       if (result == 26 || result == 11) //SQLITE_NOTADB || SQLITE_CORRUPT
       {
         throw ctkPluginDatabaseException(QString("ctkPluginFramework: Database file is corrupt or invalid: %1").arg(getDatabasePath()),

@@ -24,6 +24,7 @@
 #define CTKEATHREADFACTORYUSER_P_H
 
 #include <QMutex>
+#include <QRecursiveMutex>
 
 #include "ctkEAThreadFactory_p.h"
 #include "ctkEAInterruptibleThread_p.h"
@@ -38,7 +39,7 @@ class ctkEAThreadFactoryUser
 
 protected:
 
-  mutable QMutex mutex;
+  mutable QRecursiveMutex mutex;
 
   ctkEAThreadFactory* threadFactory;
 

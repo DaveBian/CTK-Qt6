@@ -158,7 +158,7 @@ public:
   {
     for (ctkProperties::iterator iter = result.begin(); iter != result.end(); ++iter)
     {
-      if (iter.value().type() == QVariant::String)
+      if (iter.value().typeId() == QVariant::String)
       {
         iter.value() = substituteVars(iter.value().toString());
       }
@@ -302,7 +302,7 @@ public:
     }
 
     QStringList installEntries;
-    if (pluginsProp.type() == QVariant::StringList)
+    if (pluginsProp.typeId() == QMetaType::QStringList)
     {
       installEntries = pluginsProp.toStringList();
     }
@@ -520,12 +520,12 @@ ctkPluginContext* ctkPluginFrameworkLauncher::startup(QRunnable* endSplashHandle
   d->loadBasicPlugins();
 
   d->running = true;
-  
+
   if (endSplashHandler != NULL)
   {
     endSplashHandler->run();
   }
-  
+
   return d->fwFactory->getFramework()->getPluginContext();
 }
 

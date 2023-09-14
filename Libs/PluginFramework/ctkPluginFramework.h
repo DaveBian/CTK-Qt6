@@ -129,7 +129,7 @@ public:
    * @param options Ignored. There are no start options for the %ctkPluginFramework.
    * @throws ctkPluginException If this %ctkPluginFramework could not be started.
    */
-  void start(const ctkPlugin::StartOptions& options = 0);
+  void start(const ctkPlugin::StartOptions& options = static_cast<ctkPlugin::StartOption>(0));
 
   /**
    * Stop this %ctkPluginFramework.
@@ -163,7 +163,7 @@ public:
    *         initiated.
    * @see "Start Level Service Specification"
    */
-  void stop(const StopOptions& options = 0);
+  void stop(const StopOptions& options = static_cast<StopOptions>(0));
 
   /**
    * The %ctkPluginFramework cannot be uninstalled.

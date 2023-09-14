@@ -138,6 +138,7 @@ private:
 
   ctkCmdLineModuleDescription();
 
+protected:
   QSharedDataPointer<ctkCmdLineModuleDescriptionPrivate> d;
 
 };

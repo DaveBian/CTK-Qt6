@@ -342,7 +342,7 @@ void ctkPlugins::startPlugins(const QList<ctkPlugin*>& slist) const
     {
       try
       {
-        plugin->start(0);
+        plugin->start(static_cast<ctkPlugin::StartOption>(0));
       }
       catch (const ctkPluginException& pe)
       {
