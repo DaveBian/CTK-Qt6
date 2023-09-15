@@ -28,6 +28,8 @@
 
 #include "ctkCMSerializedTaskQueue_p.h"
 
+#include <QRecursiveMutex>
+
 class ctkConfigurationAdminFactory;
 class ctkConfigurationStore;
 class ctkConfigurationImpl;
@@ -59,7 +61,7 @@ private:
   ctkConfigurationStore* configurationStore;
 
   // managedServiceFactoryMutex guards both managedServiceFactories and managedServiceFactoryReferences
-  mutable QMutex managedServiceFactoryMutex;
+  mutable QRecursiveMutex managedServiceFactoryMutex;
   QHash<QString, ctkManagedServiceFactory*> managedServiceFactories;
   QHash<QString, ctkServiceReference> managedServiceFactoryReferences;
 
